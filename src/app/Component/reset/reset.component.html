@@ -1,0 +1,42 @@
+<div class="Block">
+
+    <mat-toolbar class="tool" fxLayout="row" fxLayoutAlign="space-between center">
+        <div style="background-color: brown;" fxLayout="row" fxLayoutGap="2%">
+            <img src="../../../assets/book.svg" />
+            <a id="text">BookStore</a>
+        </div>
+
+    </mat-toolbar>
+    <form [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h4 id="title">Reset your Password?</h4>
+            <div class="forgotpass" fxLayoutAlign="center center">
+
+                <div class="forgot">
+                    <p id="content">Enter an email address and we will send a link to reset your password</p>
+                    <div>
+                        <mat-label>Password</mat-label>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" style="width: 96%;">
+                            <input type="text" class="bookstore" formControlName="Password" matInput placeholder="">
+                            <mat-error>Enter valid password</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label>confirm</mat-label>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" style="width: 96%;">
+                            <input type="text" class="bookstore" formControlName="ConfirmPaasword"  matInput placeholder="">
+                            <mat-error>Enter correct password</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <button mat-button class="primary">Reset Password</button>
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
