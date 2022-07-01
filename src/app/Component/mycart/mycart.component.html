@@ -1,0 +1,61 @@
+<div class="Container">
+    <div class="Block">
+        <div style="width: 100%; margin-top: 2%;">
+            <span style="color:gray; cursor: pointer;" routerLink="/dashboard/getallbook">Home/</span>
+            <span> Mycart </span>
+        </div>
+        <div style="width: 70%; margin-top: 20px;">
+            <mat-card>
+                <div>
+                    <div class="block1">
+
+                        <h2>MyCart({{cartArray?.length}})</h2>
+                        <mat-card style="margin-left: 50%; width:250px; height: 10px;">
+                            <span style="margin-bottom: 5px;">Bridgelabz solutions Private ltd</span>
+
+                        </mat-card>
+
+
+
+                    </div>
+
+                    <div style="margin-top: 5px; display: flex; direction: row; margin-bottom: 30px; border-bottom: 1px solid gray; padding-bottom: 25px;" *ngFor="let cart of cartArray">
+                        <div>
+                            <img style="height: 70px; width: 60px" [src]="cart.bookmodel.bookImage"  />
+                        </div>
+                        <div style="margin-left: 30px;">
+                            <div style="display: flex; direction:row">
+                                <span style="font-size:medium;">{{cart.bookmodel.bookName}}</span>
+                            </div>
+                            <div>
+                                <span style="font-size: 10px; color:gray">{{cart.bookmodel.author}}</span>
+                            </div>
+                            <div class="discountprice">
+                                Rs.{{cart.bookmodel.discountPrice * cart.bookQuantity}}
+                                <del style="margin-left: 30px; color:gray"> Rs.{{cart.bookmodel.originalPrice  * cart.bookQuantity}} </del>
+                            </div>
+                            <div>
+                                <div style="margin-top: 10px;">
+                                    <button
+                                        style="background-color: white;width:7%;height: 20px;  border-radius: 100%;">-</button>
+                                    <input style="width:20%;height: 15px; text-align: center;" [value]="cart.bookQuantity" />
+                                    <button
+                                        style="background-color: white; width:7%;height: 20px; border-radius: 100%;">+</button>
+                                    <span style="font-size: 15px; margin-left: 30px;">Remove</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="example-button-row">
+                        <button style="background-color: #3371B5; color:aliceblue; border: none; height: 30px"
+                            mat-raised-button color="primary">PLACE ORDER</button>
+                    </div>
+                </div>
+            </mat-card>
+            <mat-card style="margin-top: 20px;">Address Details</mat-card>
+            <mat-card style="margin-top: 20px;">Order Summary</mat-card>
+        </div>
+    </div>
+</div>

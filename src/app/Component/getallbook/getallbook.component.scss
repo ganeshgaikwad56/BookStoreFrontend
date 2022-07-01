@@ -1,0 +1,142 @@
+.bookCount {
+    margin-left: 134px;
+    margin-top: 20px;
+}
+
+#book-count {
+    margin-top: -22px;
+    margin-left: 3%;
+    font-size: medium;
+    color: gainsboro;
+}
+
+.books {
+    font-size: 22px;
+    margin-left: -41px;
+}
+
+.sort {
+    margin-top: -67px;
+    margin-left: 63%;
+    border-radius: none;
+    outline: none;
+}
+
+.count {
+    margin-left: 10px;
+    font-size: 15px;
+    opacity: 0.6;
+}
+
+.matselect {
+    color: brown;
+    height: 10px;
+    outline: none;
+}
+
+.bookcard {
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 6%
+}
+
+.entirebook {
+    border: 1px solid gainsboro;
+    width: 203px;
+    height: 326px;
+    margin: 16px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+
+.bookimg {
+    width: 203px;
+    height: 210px;
+    background-color: gainsboro;
+    margin-top: -1px;
+}
+
+.img1 {
+    width: 139px;
+    height: 160px;
+    margin-left: 31px;
+    margin-top: 27px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: medium;
+    margin-left: 13px;
+}
+
+#para {
+    margin-top: -24px;
+    font-size: small;
+    color: gray;
+    margin-left: 14px;
+}
+
+.rating {
+    font-size: 12px;
+    margin-top: -6px;
+    margin-left: 15px;
+    background: green;
+    color: white;
+    height: 15px;
+    width: 29px;
+    padding: 2px;
+}
+
+.Star {
+    height: 11px;
+    width: 11px;
+    font-size: 10px;
+    margin-top: -1px;
+}
+
+#del {
+    color: gray;
+}
+
+#count {
+    margin-top: -10%;
+    margin-left: 25%;
+    font-size: small;
+    color: gainsboro;
+}
+
+.dicounted-price {
+    margin-top: 5px;
+    margin-left: 13px;
+    font-size: revert;
+}
+
+.actual-price {
+    margin-left: 81px;
+    text-decoration: line-through;
+    color: gray;
+    margin-top: 5px;
+}
+
+
+#fav-icons{
+    color: white;
+    font-size: 122%;
+}
+
+.booktitle {
+    width: 55%;
+
+}
+.price-container{
+    display: flex;
+    direction: row;
+}
+
+::ng-deep.mat-form-field-appearance-outline .mat-form-field-flex {
+    padding: 0 0.75em 0 0.75em;
+    margin-top: -0.25em;
+    position: relative;
+    width: 231px;
+    margin-left: 100px;
+}

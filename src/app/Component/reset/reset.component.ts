@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/Services/UserService/user.service';
 
@@ -12,7 +13,7 @@ export class ResetComponent implements OnInit {
   resetForm!: FormGroup;
   submitted = false;
   token:any;
-  constructor(private formBuilder: FormBuilder,private user: UserService,private activateRoute:ActivatedRoute) { }
+  constructor(private formBuilder: FormBuilder,private user: UserService,private activateRoute:ActivatedRoute,private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.token = this.activateRoute.snapshot.paramMap.get('token')
@@ -33,7 +34,9 @@ export class ResetComponent implements OnInit {
       }
       this.user.reset(reqdata,this.token).subscribe((Response: any)=>{
         console.log(Response);
-        
+        this.snackBar.open('Password Change Successfully..!!!','..', {
+          duration: 3000,
+        })
       });
     }
   }

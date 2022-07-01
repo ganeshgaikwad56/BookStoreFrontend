@@ -1,4 +1,4 @@
-<div class="Container ">
+<div class="Block ">
     <mat-card class="Block1">
 
         <div>
@@ -13,7 +13,7 @@
     <mat-card class="Block2" fxLayout="row" fxLayoutAlign="center center">
         <div fxLayout="row">
             <button type="button" class="login" routerLink="/login">LOGIN</button>
-            <button type="button" class="signup" routerLink="/signup">SIGNUP</button>
+            <button type="button" class="signup">SIGNUP</button>
         </div>
 
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -27,6 +27,7 @@
                         </div>
                         <mat-form-field appearance="outline">
                             <input formControlName="FullName" matInput placeholder="">
+                            <mat-error>Enter an fullname</mat-error>
                         </mat-form-field>
                     </div>
 
@@ -37,6 +38,7 @@
                         </div>
                         <mat-form-field appearance="outline">
                             <input formControlName="Email" matInput placeholder="">
+                            <mat-error>Enter an email address</mat-error>
                         </mat-form-field>
                     </div>
 
@@ -47,6 +49,7 @@
                         </div>
                         <mat-form-field appearance="outline">
                             <input formControlName="Password" matInput placeholder="">
+                            <mat-error>Enter an password</mat-error>
                         </mat-form-field>
                     </div>
                     <div fxLayout="column">
@@ -56,6 +59,7 @@
                         </div>
                         <mat-form-field appearance="outline">
                             <input formControlName="MobileNumber" matInput placeholder="">
+                            <mat-error>Enter an mobile</mat-error>
                         </mat-form-field>
                     </div>
                     <button mat-button class="signupbutton">Signup</button>

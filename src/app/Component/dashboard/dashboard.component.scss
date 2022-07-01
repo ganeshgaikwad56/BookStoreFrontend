@@ -1,0 +1,38 @@
+.searchInput{
+    width: 550px;
+    height: 30px;
+    margin-left: 56px;
+    border: none;
+    border-radius: 5px;
+}
+
+ 
+    .footer{
+      display: flex;
+      align-items:center;
+      justify-content: left;
+      padding-left:170px ;
+      background-color: #2E1D1E;
+      position: fixed;
+      width: 100%;
+      color:white;
+      bottom: 0;
+      text-align: center;
+      height: 25px;
+  }
+ 
+  .profile{
+    display: flex;
+    direction: row;
+    margin-left: 250px;
+    padding-top: 15px;
+   
+    
+  }
+  .book{
+    display: flex;
+    direction: row;
+
+  }
+
+  
