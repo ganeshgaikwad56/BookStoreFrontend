@@ -20,7 +20,7 @@
                     <button class="btn" *ngIf="!show" (click)="hideAndShow()" >ADD TO BAG</button>
                     <div class="wrapper"  *ngIf="show" >
                         <button style="background-color: white;width:20%;height: 25px;  border-radius: 100%;" >-</button>
-                        <input style="width:40%;height: 35px; text-align: center;" value="0" [(ngModel)]="value" />
+                        <input style="width:40%;height: 35px; text-align: center;" value="1" [(ngModel)]="value" />
                         <button style="background-color: white; width:20%;height: 25px; border-radius: 100%;" (click)="AddToBag()" >+</button>
                     </div>
                     <button class="btn2">WHISH LIST</button>

@@ -19,16 +19,16 @@
 
                     </div>
 
-                    <div style="margin-top: 5px; display: flex; direction: row; margin-bottom: 30px; border-bottom: 1px solid gray; padding-bottom: 25px;" *ngFor="let cart of cartArray">
+                    <div style="margin-top: 5px; display: flex; direction: row; margin-bottom: 40px; border-bottom: 1px solid gray; padding-bottom: 25px;" *ngFor="let cart of cartArray">
                         <div>
                             <img style="height: 70px; width: 60px" [src]="cart.bookmodel.bookImage"  />
                         </div>
                         <div style="margin-left: 30px;">
                             <div style="display: flex; direction:row">
-                                <span style="font-size:medium;">{{cart.bookmodel.bookName}}</span>
+                                <span style="font-size:medium; font-family: cursive;">{{cart.bookmodel.bookName}}</span>
                             </div>
                             <div>
-                                <span style="font-size: 10px; color:gray">{{cart.bookmodel.author}}</span>
+                                <span style="font-size: 10px; color:gray">By {{cart.bookmodel.authorName}}</span>
                             </div>
                             <div class="discountprice">
                                 Rs.{{cart.bookmodel.discountPrice * cart.bookQuantity}}
@@ -37,11 +37,11 @@
                             <div>
                                 <div style="margin-top: 10px;">
                                     <button
-                                        style="background-color: white;width:7%;height: 20px;  border-radius: 100%;">-</button>
+                                        style="background-color: white;width:7%;height: 20px;  border-radius: 100%;" (click)="minus(cart.bookId,cart.cartId,cart.bookQuantity)">-</button>
                                     <input style="width:20%;height: 15px; text-align: center;" [value]="cart.bookQuantity" />
                                     <button
-                                        style="background-color: white; width:7%;height: 20px; border-radius: 100%;">+</button>
-                                    <span style="font-size: 15px; margin-left: 30px;">Remove</span>
+                                        style="background-color: white; width:7%;height: 20px; border-radius: 100%;"(click)="plus(cart.bookId,cart.cartId,cart.bookQuantity)">+</button>
+                                    <span style="font-size: 15px; margin-left: 30px;" (click)="Remove(cart.cartId)">Remove</span>
                                 </div>
 
                             </div>

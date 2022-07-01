@@ -70,4 +70,24 @@ token:any;
     }
     return this.httpService.getService('Cart/GetCartDetailsByUserid', true, header)
   }
+  deletecart(cartId:any){
+    this.token = localStorage.getItem('token')
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.deleteService(`Cart/DeleteBook/${cartId}`, true, header)
+  }
+  updatecartitem(cartId:any,data:any){
+    this.token = localStorage.getItem('token')
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.putService(`Cart/UpdateCart/${cartId}`,data, true, header)
+  }
 }

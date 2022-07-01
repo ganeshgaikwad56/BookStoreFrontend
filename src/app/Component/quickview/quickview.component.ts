@@ -61,14 +61,14 @@ export class QuickviewComponent implements OnInit {
     });
   }
   name = 'Angular ' + VERSION.major;
-  value = 0;
+  value = 1;
 
-  handleMinus() {
-    this.value--;  
-  }
-  handlePlus() {
-    this.value++;    
-  }
+  // handleMinus() {
+  //   this.value--;  
+  // }
+  // handlePlus() {
+  //   this.value++;    
+  // }
   AddToBag(){
     let data = {
       bookQuantity: this.value,
