@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookService } from 'src/app/Services/BookService/book.service';
 
 @Component({
@@ -8,8 +9,9 @@ import { BookService } from 'src/app/Services/BookService/book.service';
 })
 export class MycartComponent implements OnInit {
   cartArray: any;
-  
-  constructor(private bookService: BookService) { }
+  show = false;
+
+  constructor(private bookService: BookService,private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.getCartbook();
@@ -22,6 +24,10 @@ export class MycartComponent implements OnInit {
       console.log(this.cartArray);
 
     });
+  }
+  hideAndShow() {
+    console.log("calling hide")
+    this.show = !this.show
   }
   Remove(cartId: any) {
     console.log(cartId)
@@ -41,6 +47,9 @@ export class MycartComponent implements OnInit {
       this.bookService.updatecartitem(cartId,data).subscribe((response: any) => {
         console.log("Cart minus Successfully", response);
         this.getCartbook();
+        this.snackBar.open('Cart updeted Successfully..!!!','..', {
+          duration: 3000,
+        })
       }); 
     }
      
@@ -55,6 +64,9 @@ export class MycartComponent implements OnInit {
       this.bookService.updatecartitem(cartId,data).subscribe((response: any) => {
         console.log("Cart plus Successfully", response);
         this.getCartbook();
+        this.snackBar.open('Cart updeted Successfully..!!!','..', {
+          duration: 3000,
+        })
       });
     
   }

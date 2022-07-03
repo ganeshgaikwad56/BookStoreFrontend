@@ -84,4 +84,18 @@ export class QuickviewComponent implements OnInit {
     },error=>{console.log(error)})
   
   }
+
+  AddWishlist(){
+    let data = {
+      bookId: this.BookId
+    }
+    console.log(data)
+    this.bookService.addtowishlist(data).subscribe((response: any) => {
+      console.log("User Feedback", response);
+      this.snackBar.open('Book Added in Wishlist Successfully..!!!','..', {
+        duration: 3000,
+      })
+    },error=>{console.log(error)})
+  
+  }
 }

@@ -21,6 +21,10 @@ import {MatSelectModule} from '@angular/material/select';
 import { QuickviewComponent } from './Component/quickview/quickview.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MycartComponent } from './Component/mycart/mycart.component';
+import { WishlistComponent } from './Component/wishlist/wishlist.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { OrderComponent } from './Component/order/order.component';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,12 +35,14 @@ import { MycartComponent } from './Component/mycart/mycart.component';
     DashboardComponent,
     GetallbookComponent,
     QuickviewComponent,
-    MycartComponent
+    MycartComponent,
+    WishlistComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,FormsModule,ReactiveFormsModule,MatToolbarModule,MatSnackBarModule,
-    BrowserAnimationsModule,MatFormFieldModule,MatCardModule,MatInputModule,MatIconModule,MatSelectModule
+    AppRoutingModule,HttpClientModule,FormsModule,ReactiveFormsModule,MatToolbarModule,MatSnackBarModule,MatRadioModule,
+    BrowserAnimationsModule,MatFormFieldModule,MatCardModule,MatInputModule,MatIconModule,MatSelectModule,MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

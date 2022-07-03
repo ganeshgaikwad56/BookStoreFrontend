@@ -11,9 +11,23 @@
             <div class="profile" style="width: 200px;">
                 <div style="width:100px; height: 60px; padding-top: 10px;">
                     <div style="height:18px ; color: aliceblue;">
-                        <mat-icon>perm_identity</mat-icon>
+                        <mat-icon [matMenuTriggerFor]="menu">perm_identity</mat-icon>
+                        <mat-menu #menu="matMenu">
+                            <div style="margin: 20px;">
+                                <span mat-menu-item>Hello Ganesh</span>
+                                <button style="padding-left: 30px;" mat-menu-item routerLink="./wishlist">WishList</button>
+                                <button style="padding-left: 30px;" mat-menu-item routerLink="./order">My Order</button>
+                                <button style="padding-left: 35px;
+                                padding-bottom: 44px;
+                                border: 1px solid brown;
+                                color: brown;
+                                margin-top: 10px;
+                                height: 40px;" mat-menu-item>Logout</button>
+                            </div>
+                           
+                        </mat-menu>
                     </div>
-                    <span style="font-size: 12px; color: aliceblue; padding-right: 20px;">Profile</span>
+                    <span style="font-size: 12px; color: aliceblue; padding-right: 20px;"[matMenuTriggerFor]="menu">Profile</span>
                 </div>
                 <div style="width:100px; height: 60px; padding-top: 10px;">
                     <div style="height:18px ; color: aliceblue;">
@@ -26,7 +40,7 @@
         <div>
             <router-outlet></router-outlet>
         </div>
-       
+
     </div>
     <div class="footer">
         Copyright &copy; 2022 Bookstore Private Limited All Rights Reserved

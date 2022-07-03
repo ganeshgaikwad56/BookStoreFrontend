@@ -90,4 +90,49 @@ token:any;
     }
     return this.httpService.putService(`Cart/UpdateCart/${cartId}`,data, true, header)
   }
+
+  addtowishlist(data:any){
+    this.token = localStorage.getItem('token')
+    console.log(data);
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+     
+    }
+    console.log(data);
+    return this.httpService.postService('WishList/AddWishList',data, true, header)
+  }
+
+  getWishlist(){
+    this.token = localStorage.getItem('token')
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.getService('WishList/GetWishlistDetailsByUserid', true, header)
+  }
+  deletewish(wishlistId:any){
+    this.token = localStorage.getItem('token')
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.deleteService(`WishList/DeleteWishList/${wishlistId}`, true, header)
+  }
+  GetOrder(){
+    this.token = localStorage.getItem('token')
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.getService('Order/GetAllOrder', true, header)
+  }
 }

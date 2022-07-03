@@ -18,7 +18,7 @@
     <div class="bookcard">
         <div class="entirebook" *ngFor="let Book of BookArray">
             <div class="bookimg">
-                <img class="img1" [src]="Book.bookImage" alt="" (click)="quickview(Book)">
+                <img src="{{Book.bookImage}}" class="img1" alt="" (click)="quickview(Book)">
             </div>
             <h2 class="title">{{Book.bookName}}</h2>
             <p id="para">by {{Book.authorName}}</p>

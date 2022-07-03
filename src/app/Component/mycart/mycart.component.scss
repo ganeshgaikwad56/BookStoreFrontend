@@ -11,11 +11,21 @@
   direction: column;
 }
 
+.block2{
+  display: flex;
+  direction: column;
+  justify-content: space-between;
+}
+
 .example-button-row{
 
-margin-left: 80%;
+margin-left:570px;
 }
 
 .discountprice{
   margin-top: 10px;
+}
+::ng-deep.cdk-text-field-autofill-monitored:not(:-webkit-autofill) {
+  animation: cdk-text-field-autofill-end 0s 1ms;
+  height: 35px;
 }
