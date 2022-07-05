@@ -47,69 +47,124 @@
                     <div class="example-button-row">
                         <button
                             style="background-color: #3371B5; color:aliceblue; border: 1px solid gray; height: 34px;  width: 150px;"
-                            mat-raised-button color="primary">PLACE ORDER</button>
+                            mat-raised-button color="primary" *ngIf="!show" (click)="hideAndShow()">PLACE ORDER</button>
                     </div>
                 </div>
             </mat-card>
             <mat-card style="margin-top: 20px; border: 1px solid gray;">
-                <div class="block2">
-                    <h3>Address Details</h3>
-                    <button  style="height: 34px;
-                    width: 150px;
-                    color: brown;
-                    border-color: brown;
-                    border: 1px solid;"  (click)="hideAndShow()" *ngIf="show || !show">Add New Address</button>
+                <div *ngIf="!show">
+                    <h2>Address Details</h2>
                 </div>
-                <div *ngIf="show">
-                    <div style="display: flex; direction: row; margin-top: 10px;">
+                <div style="margin: 20px;" *ngIf="show">
+                    <div style="display: flex; direction: row; justify-content: space-between;">
                         <div>
-                            <div>
-                                <mat-label>FullName</mat-label>
-                            </div>
-                            <input matInput placeholder="">
+                            <h2>Customer Details</h2>
                         </div>
-                        <div style="margin-left: 5px;">
-                            <div>
-                                <mat-label>MobileNumber</mat-label>
-                            </div>
-                            <input matInput placeholder="">
+                        <div  class="block2">
+                            <button style="height: 34px;
+                            width: 150px;
+                            color: brown;
+                            border-color: brown;
+                            border: 1px solid;"  *ngIf="!addshow" (click)="addshowhide()">Add New Address</button>
                         </div>
                     </div>
-                    <div style="margin-top: 10px;">
-                        <div>
-                            <mat-label>Address</mat-label>
-                        </div>
-                        <input style="width: 351px;" matInput placeholder="">
-                    </div>
-                    <div style="display: flex; direction: row; margin-top: 10px;">
-                        <div>
+                    <div>
+                        <div style="display: flex; direction: row; margin-top: 10px;">
                             <div>
-                                <mat-label>City/Town</mat-label>
+                                <div>
+                                    <mat-label>FullName</mat-label>
+                                </div>
+                                <input matInput placeholder="Ganesh">
                             </div>
-                            <input matInput placeholder="">
-                        </div>
-                        <div style="margin-left: 5px;">
-                            <div>
-                                <mat-label>State</mat-label>
+                            <div style="margin-left: 5px;">
+                                <div>
+                                    <mat-label>MobileNumber</mat-label>
+                                </div>
+                                <input matInput placeholder="8698669929">
                             </div>
-                            <input matInput placeholder="">
                         </div>
-                    </div>
-                    <div style="margin-top: 20px;">
-                        <div>
-                            <mat-label>Type</mat-label>
+                        <div *ngIf="addshow">
+                            <div style="margin-top: 10px;">
+                                <div>
+                                    <mat-label>Address</mat-label>
+                                </div>
+                                <input style="width: 351px;" matInput placeholder="mumbai">
+                            </div>
+                            <div style="display: flex; direction: row; margin-top: 10px;">
+                                <div>
+                                    <div>
+                                        <mat-label>City/Town</mat-label>
+                                    </div>
+                                    <input matInput placeholder="Mumbai">
+                                </div>
+                                <div style="margin-left: 5px;">
+                                    <div>
+                                        <mat-label>State</mat-label>
+                                    </div>
+                                    <input matInput placeholder="Maharashtra">
+                                </div>
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <div>
+                                    <mat-label>Type</mat-label>
+                                </div>
+                                <mat-radio-group aria-label="Select an option" style="padding-top: 10px;" >
+                                    <mat-radio-button value="1">Home</mat-radio-button>
+                                    <mat-radio-button style="margin-left: 30px;" value="2">Work</mat-radio-button>
+                                    <mat-radio-button style="margin-left: 30px;" value="2">Other</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div class="example-button-row">
+                                <button
+                                    style="background-color: #3371B5; color:aliceblue; border: 1px solid gray; height: 34px;  width: 150px;"
+                                    mat-raised-button color="primary"
+                                   >Submit Address</button>
+                            </div>
                         </div>
-                        <mat-radio-group style="padding-top: 10px;" aria-label="Select an option">
-                            <mat-radio-button value="1">Home</mat-radio-button>
-                            <mat-radio-button style="margin-left: 30px;" value="2">Work</mat-radio-button>
-                            <mat-radio-button style="margin-left: 30px;" value="2">Other</mat-radio-button>
-                        </mat-radio-group>
-
-                    </div>
-                    <div class="example-button-row">
-                        <button
-                            style="background-color: #3371B5; color:aliceblue; border: 1px solid gray; height: 34px;  width: 150px;"
-                            mat-raised-button color="primary">CONTINUE</button>
+                        <div style="margin-top: 20px;margin-left: 0px" *ngIf="!addshow">
+                            <div *ngFor="let Address of AddressArray">
+                                <div *ngIf="Address.typeId > 2">
+                                    <input type="radio" [(ngModel)]="Address.typeId" [id]="Address.typeId"
+                                        value="Address.typeId" style="margin-top: 20px;">
+                                    <span for="Address.typeId" style="font-size: 18px;">.Home </span>
+                                </div>
+                                <div *ngIf="Address.typeId===2">
+                                    <input type="radio" [(ngModel)]="Address.typeId" [id]="Address.typeId" value=".work"
+                                        style="margin-top: 20px;">
+                                    <span for="Address.typeId" style="font-size: 18px;">.Work </span>
+                                </div>
+                                <div *ngIf="Address.typeId===1">
+                                    <input type="radio" [(ngModel)]="Address.typeId" [id]="Address.typeId"
+                                        [value]="Address.typeId" style="margin-top: 20px;">
+                                    <span for="Address.addressId" style="font-size: 18px;">.other </span>
+                                </div>
+                                <div style="margin-top: 10px;">
+                                    <div>
+                                        <mat-label>Address</mat-label>
+                                    </div>
+                                    <input style="width: 351px;" matInput placeholder="mumbai" [value]="Address.address">
+                                </div>
+                                <div style="display: flex; direction: row; margin-top: 10px;">
+                                    <div>
+                                        <div>
+                                            <mat-label>City/Town</mat-label>
+                                        </div>
+                                        <input matInput placeholder="Mumbai" [value]="Address.city">
+                                    </div>
+                                    <div style="margin-left: 5px;">
+                                        <div>
+                                            <mat-label>State</mat-label>
+                                        </div>
+                                        <input matInput placeholder="Maharashtra"  [value]="Address.state">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="example-button-row">
+                                <button
+                                    style="background-color: #3371B5; color:aliceblue; border: 1px solid gray; height: 34px; margin-left: -17px;  width: 150px;"
+                                    mat-raised-button color="primary" (click)="SummaryHide()" *ngIf="!Summary">CONTINUE</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </mat-card>
@@ -118,29 +173,31 @@
                     <div class="block1">
                         <h2>Order Summary</h2>
                     </div>
-                    <div style="margin-top: 5px; display: flex; direction: row;"
-                        *ngFor="let cart of cartArray">
-                        <div>
-                            <img style="height: 70px; width: 60px" [src]="cart.bookmodel.bookImage" />
-                        </div>
-                        <div style="margin-left: 30px;">
-                            <div style="display: flex; direction:row">
-                                <span style="font-size:medium; font-family: cursive;">{{cart.bookmodel.bookName}}</span>
-                            </div>
+                    <div *ngIf="Summary">
+                        <div style="margin-top: 5px; display: flex; direction: row;" *ngFor="let cart of cartArray">
                             <div>
-                                <span style="font-size: 10px; color:gray">By {{cart.bookmodel.authorName}}</span>
+                                <img style="height: 70px; width: 60px" [src]="cart.bookmodel.bookImage" />
                             </div>
-                            <div class="discountprice">
-                                Rs.{{cart.bookmodel.discountPrice * cart.bookQuantity}}
-                                <del style="margin-left: 30px; color:gray"> Rs.{{cart.bookmodel.originalPrice *
-                                    cart.bookQuantity}} </del>
+                            <div style="margin-left: 30px;">
+                                <div style="display: flex; direction:row">
+                                    <span
+                                        style="font-size:medium; font-family: cursive;">{{cart.bookmodel.bookName}}</span>
+                                </div>
+                                <div>
+                                    <span style="font-size: 10px; color:gray">By {{cart.bookmodel.authorName}}</span>
+                                </div>
+                                <div class="discountprice">
+                                    Rs.{{cart.bookmodel.discountPrice * cart.bookQuantity}}
+                                    <del style="margin-left: 30px; color:gray"> Rs.{{cart.bookmodel.originalPrice *
+                                        cart.bookQuantity}} </del>
+                                </div>
+                                <div class="example-button-row">
+                                    <button
+                                        style="background-color: #3371B5; color:aliceblue; border: 1px solid gray; height: 34px;  width: 150px; margin-left: -70px;"
+                                        mat-raised-button color="primary"(click)="AddToOrder(cart.bookId,cart.bookQuantity)">CHECKOUT</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="example-button-row">
-                        <button
-                            style="background-color: #3371B5; color:aliceblue; border: 1px solid gray; height: 34px;  width: 150px;"
-                            mat-raised-button color="primary">CHECKOUT</button>
                     </div>
                 </div>
             </mat-card>

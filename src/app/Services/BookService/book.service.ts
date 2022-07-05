@@ -135,4 +135,27 @@ token:any;
     }
     return this.httpService.getService('Order/GetAllOrder', true, header)
   }
+  getAddress(){
+    this.token = localStorage.getItem('token')
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.getService('Address/ GetAllAddresses', true, header)
+  }
+  addToOrder(data:any){
+    this.token = localStorage.getItem('token')
+    console.log(data);
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+     
+    }
+    console.log(data);
+    return this.httpService.postService('Order/AddOrder',data, true, header)
+  }
 }
