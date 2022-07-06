@@ -88,55 +88,55 @@
                                 <div>
                                     <mat-label>Address</mat-label>
                                 </div>
-                                <input style="width: 351px;" matInput placeholder="mumbai">
+                                <input style="width: 351px;"  [(ngModel)]="address" matInput placeholder="mumbai">
                             </div>
                             <div style="display: flex; direction: row; margin-top: 10px;">
                                 <div>
                                     <div>
                                         <mat-label>City/Town</mat-label>
                                     </div>
-                                    <input matInput placeholder="Mumbai">
+                                    <input [(ngModel)]="city" matInput placeholder="Mumbai">
                                 </div>
                                 <div style="margin-left: 5px;">
                                     <div>
                                         <mat-label>State</mat-label>
                                     </div>
-                                    <input matInput placeholder="Maharashtra">
+                                    <input  [(ngModel)]="state" matInput placeholder="Maharashtra">
                                 </div>
                             </div>
                             <div style="margin-top: 20px;">
                                 <div>
                                     <mat-label>Type</mat-label>
                                 </div>
-                                <mat-radio-group aria-label="Select an option" style="padding-top: 10px;" >
-                                    <mat-radio-button value="1">Home</mat-radio-button>
-                                    <mat-radio-button style="margin-left: 30px;" value="2">Work</mat-radio-button>
-                                    <mat-radio-button style="margin-left: 30px;" value="2">Other</mat-radio-button>
+                                <mat-radio-group  [(ngModel)]="value" aria-label="Select an option" style="padding-top: 10px;" >
+                                    <mat-radio-button  value="1"  [(ngModel)]="value">Home</mat-radio-button>
+                                    <mat-radio-button  style="margin-left: 30px;" value="2" [(ngModel)]="value">Work</mat-radio-button>
+                                    <mat-radio-button style="margin-left: 30px;" value="3" [(ngModel)]="value">Other</mat-radio-button>
                                 </mat-radio-group>
                             </div>
                             <div class="example-button-row">
                                 <button
                                     style="background-color: #3371B5; color:aliceblue; border: 1px solid gray; height: 34px;  width: 150px;"
                                     mat-raised-button color="primary"
-                                   >Submit Address</button>
+                                   (click)="Addaddress()">Submit Address</button>
                             </div>
                         </div>
                         <div style="margin-top: 20px;margin-left: 0px" *ngIf="!addshow">
                             <div *ngFor="let Address of AddressArray">
                                 <div *ngIf="Address.typeId > 2">
-                                    <input type="radio" [(ngModel)]="Address.typeId" [id]="Address.typeId"
-                                        value="Address.typeId" style="margin-top: 20px;">
+                                    <input type="radio" [(ngModel)]="AddressId" [id]="Address.addressId"
+                                    value="{{Address.addressId}}" style="margin-top: 20px;">
                                     <span for="Address.typeId" style="font-size: 18px;">.Home </span>
                                 </div>
                                 <div *ngIf="Address.typeId===2">
-                                    <input type="radio" [(ngModel)]="Address.typeId" [id]="Address.typeId" value=".work"
+                                    <input type="radio" [(ngModel)]="AddressId" [id]="Address.addressId" value="{{Address.addressId}}"
                                         style="margin-top: 20px;">
                                     <span for="Address.typeId" style="font-size: 18px;">.Work </span>
                                 </div>
                                 <div *ngIf="Address.typeId===1">
-                                    <input type="radio" [(ngModel)]="Address.typeId" [id]="Address.typeId"
-                                        [value]="Address.typeId" style="margin-top: 20px;">
-                                    <span for="Address.addressId" style="font-size: 18px;">.other </span>
+                                    <input type="radio" [(ngModel)]="AddressId" [id]="Address.addressId"
+                                    value="{{Address.addressId}}" style="margin-top: 20px;">
+                                    <span for="Address.typeId" style="font-size: 18px;">.other </span>
                                 </div>
                                 <div style="margin-top: 10px;">
                                     <div>

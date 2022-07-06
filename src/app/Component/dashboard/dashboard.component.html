@@ -17,12 +17,12 @@
                                 <span mat-menu-item>Hello Ganesh</span>
                                 <button style="padding-left: 30px;" mat-menu-item routerLink="./wishlist">WishList</button>
                                 <button style="padding-left: 30px;" mat-menu-item routerLink="./order">My Order</button>
-                                <button style="padding-left: 35px;
+                                <button (click)="Logout()" style="padding-left: 35px;
                                 padding-bottom: 44px;
                                 border: 1px solid brown;
                                 color: brown;
                                 margin-top: 10px;
-                                height: 40px;" mat-menu-item>Logout</button>
+                                height: 40px;" mat-menu-item routerLink="/login">Logout</button>
                             </div>
                            
                         </mat-menu>

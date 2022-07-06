@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { BookService } from 'src/app/Services/BookService/book.service';
 
 @Component({
@@ -15,7 +16,11 @@ export class MycartComponent implements OnInit {
   TypeId:any;
   show=false;
   addshow=false;
-  constructor(private bookService: BookService, private snackBar: MatSnackBar) { }
+  address:any;
+  value:any;
+  city:any;
+  state:any
+  constructor(private bookService: BookService, private snackBar: MatSnackBar,private rout:Router) { }
 
   ngOnInit(): void {
     this.getCartbook();
@@ -89,7 +94,6 @@ export class MycartComponent implements OnInit {
     this.bookService.getAddress().subscribe((response: any) => {
       console.log(response);
       this.AddressArray = response.response;
-      this.TypeId = this.AddressArray[0].typeId;
       console.log(this.AddressArray);
 
     });
@@ -97,13 +101,35 @@ export class MycartComponent implements OnInit {
   AddToOrder(BookId:any,bookQuantity:any){
     let data = {
       bookId: BookId,
-      addressId:this.TypeId,
+      addressId:this.AddressId,
       bookQuantity:bookQuantity,
     }
     this.bookService.addToOrder(data).subscribe(
       (response: any) => {
         console.log('Add to wishlist', response);
         this.snackBar.open('your order is Successfull', '', {
+          duration: 3000,
+        })
+        
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+    this.rout.navigateByUrl('/dashboard/place');
+  }
+  Addaddress(){
+    let data={
+      address:this.address,
+      typeId:this.value,
+      city:this.city,
+      state:this.state
+
+    }
+    this.bookService.addAddress(data).subscribe(
+      (response: any) => {
+        console.log('Add to wishlist', response);
+        this.snackBar.open('your Address added Successfully', '', {
           duration: 3000,
         })
         
